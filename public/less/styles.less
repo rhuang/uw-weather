@@ -1,9 +1,51 @@
+@weather-container-height: 30%;
+@graph-container-height: 40%;
+@forecast-container-height:30%;
+
 html{
 	background-color: #E7E7E7;
+	height: 100%
 }
 
 body{
+	height:100%;
 	margin-left: 144px;
 	margin-right: 144px;
 	background-color: #FFFFFF;
+}
+
+.main-container{
+	height:100%;
+}
+
+.bordered{
+	border-style: solid;
+	border-width: 1px;
+}
+
+.weather-view{
+	height: @weather-container-height;
+	.bordered;
+}
+
+.weather-view .current-temp{
+	margin-top:50px;
+	font-size: 12em;
+}
+
+.graph-view{
+	height: @graph-container-height;
+	.bordered;
+}
+
+.forecast-view{
+	height: @forecast-container-height;
+	.bordered;
+}
+
+.day-container{
+	margin-top: 20px;
+	margin-top: 20px;
+	height:80%;
+	.bordered;
 }
