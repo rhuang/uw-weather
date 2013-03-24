@@ -20,7 +20,7 @@ window.WeatherModel = Backbone.Model.extend({
 	}
 });
 
-window.WeatherCollection = Backbone.Collection.extedn({
+window.WeatherCollection = Backbone.Collection.extend({
 	Model : WeatherModel,
 	URL : ""
 });
