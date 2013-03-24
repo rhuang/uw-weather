@@ -1,1 +1,2 @@
-New, Redesigned Weather app for Univeristy of Waterloo students.
+Redesigned weather app for Univeristy of Waterloo students.
+===========================================================

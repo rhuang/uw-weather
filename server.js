@@ -3,7 +3,6 @@
  */
 
 var express = require('express'),
-    weather = require('./app/routes/WeatherRoutes'),
     http = require('http'),
     path = require('path'),
     w = require('winston');
@@ -26,7 +25,7 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
-app.get('/weather', weather.weather);
+require(__dirname + '/routing')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
     w.info("Express server listening on port " + app.get('port'));
