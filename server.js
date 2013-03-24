@@ -1,7 +1,6 @@
 /**
- * Module dependencies.
+ * Main server file for starting the server and setting up the routing for the apis.
  */
-
 var express = require('express'),
     http = require('http'),
     path = require('path'),
@@ -25,6 +24,7 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
+// Contains all the routing information.
 require(__dirname + '/routing')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
