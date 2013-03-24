@@ -1,0 +1,397 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Wea",
+				"WeatherModel"
+			],
+			[
+				"styl",
+				"stylesheets"
+			],
+			[
+				"st",
+				"stylesheet"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"th",
+				"thumbnail"
+			],
+			[
+				"conta",
+				"contactTable"
+			],
+			[
+				"pub",
+				"publisher"
+			],
+			[
+				"pro",
+				"proceedings_year"
+			],
+			[
+				"prc",
+				"proceedings_year"
+			],
+			[
+				"J",
+				"j_year"
+			],
+			[
+				"W",
+				"WHERE"
+			],
+			[
+				"Tab",
+				"Table1"
+			],
+			[
+				"S",
+				"SQL"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"con",
+				"contactConent"
+			],
+			[
+				"padding-",
+				"padding-bottom"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"ski",
+				"skillInfo"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"border-s",
+				"border-style"
+			],
+			[
+				"web",
+				"-webkit-box-align:   (property)"
+			],
+			[
+				"box-pack",
+				"-webkit-box-pack:   (property)"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"margin-",
+				"margin-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"lar",
+				"largestNums"
+			],
+			[
+				"larg",
+				"largestNum"
+			],
+			[
+				"abs",
+				"absDiff"
+			],
+			[
+				"num",
+				"numbers"
+			],
+			[
+				"numbe",
+				"number"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 494.0
+	},
+	"console":
+	{
+		"height": 118.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/MarcRoopchand/Projects/uw-weather/css/index.less",
+		"/Users/MarcRoopchand/Projects/uw-weather/js/index.js",
+		"/Users/MarcRoopchand/Projects/uw-weather/public/index.html",
+		"/Users/MarcRoopchand/Projects/uw-weather/css/index.css",
+		"/Users/MarcRoopchand/Projects/uw-weather/index.html",
+		"/Users/MarcRoopchand/Projects/uw-weather/backbone.js",
+		"/Users/MarcRoopchand/Projects/Websites/HerokuTest/web.js",
+		"/Users/MarcRoopchand/Projects/Websites/HerokuTest/HerokuTest.sublime-project",
+		"/Users/MarcRoopchand/Projects/Websites/HerokuTest/Procfile",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/public/stylesheets/navbar.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/public/stylesheets/demo.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/public/javascripts/menyInstantiate.js",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/public/stylesheets/style.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/routes/index.js",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/routes/user.js",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv3/views/index.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/layout.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/blog.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/style.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/about.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/bottomNav.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/blog.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/bootstrap.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/topNav.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/topNav.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/projects.jade",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/projects.css",
+		"/Users/MarcRoopchand/Projects/Websites/Resume/MarcResume.html",
+		"/Users/MarcRoopchand/Desktop/Waterloo/Waterloo3B/Intro to DB/q2.cc",
+		"/Users/MarcRoopchand/Desktop/Waterloo/Waterloo3B/Intro to DB/designDocument.txt",
+		"/Users/MarcRoopchand/Desktop/Waterloo/Waterloo3B/Intro to DB/bibcontent.sqc",
+		"/Users/MarcRoopchand/Downloads/new2.cc",
+		"/Users/MarcRoopchand/Desktop/Waterloo/Waterloo3B/Intro to DB/bibauthor.cc",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/views/resume.jade",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/greeq2.cc",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/about.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/stylesheets/resume.css",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/public/javascripts/index.js",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/routes/index.js",
+		"/Users/MarcRoopchand/Projects/Websites/marcroopchand.comv2/app.js",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/greeq1.cc",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/greeq3.cc",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/gree.java",
+		"/Users/MarcRoopchand/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/jspractice.html",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/fib.java",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/reverseLinkedList.cc",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/jspractice.js",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/reverseSubset.cc",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/Mergesort.java",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/fibonacci.cc",
+		"/Users/MarcRoopchand/Projects/InterviewPrep/sort.cc",
+		"/Users/MarcRoopchand/3B_School_Projects/AI/Sudoku_FC.java"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"active",
+			"clearfix",
+			"nav",
+			"navbar",
+			"table",
+			"tabke",
+			"publication",
+			"pub_cursor",
+			"mac",
+			"date",
+			"bool",
+			"#include",
+			" >",
+			"10",
+			"\n	",
+			"using"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"sty",
+				"public/less/styles.less"
+			],
+			[
+				"demo",
+				"public/stylesheets/demo.css"
+			],
+			[
+				"resume",
+				"views/resume.jade"
+			],
+			[
+				"resume.css",
+				"public/stylesheets/resume.css"
+			],
+			[
+				"blog.jade",
+				"views/blog.jade"
+			],
+			[
+				"blog",
+				"views/blog.jade"
+			],
+			[
+				"about.cs",
+				"public/stylesheets/about.css"
+			],
+			[
+				"blog.css",
+				"public/stylesheets/blog.css"
+			],
+			[
+				"ine",
+				"routes/index.js"
+			],
+			[
+				"",
+				"/Users/MarcRoopchand/Projects/InterviewPrep/Mergesort.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true
+}
