@@ -1,4 +1,8 @@
 /**
+ * Routes for the weather API.
+ */
+
+/**
  * The route for the UW weather API located at http://api.uwaterloo.ca/#!/weather.
  *
  * @param {Express} app The Express server that will render the routes.

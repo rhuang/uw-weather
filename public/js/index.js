@@ -67,7 +67,7 @@ window.GraphView = Backbone.Collection.extend({
     //template:_.template($('#').html()),
 
     initialize:function () {
-    }
+    },
 
     render:function (eventName) {
     } 
