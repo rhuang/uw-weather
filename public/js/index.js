@@ -67,7 +67,7 @@ window.GraphView = Backbone.Collection.extend({
     //template:_.template($('#').html()),
 
     initialize:function () {
-    }
+    },
 
     render:function (eventName) {
     } 
@@ -97,7 +97,9 @@ var appRouter = Backbone.Router.extend({
 		var forecast = new WeatherCollection();
 		this.ForecastView = new ForecastView({model:this.forecast});
 
-		//forecast.fetch();
+		forecast.fetch( success: function(){
+         var a = hey;
+        });
         //$('#').html(this.ForecastView.render().el);
 	}
 });
