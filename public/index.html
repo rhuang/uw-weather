@@ -9,26 +9,86 @@
 	<article class="container-fluid main-container">
 		<section class="weather-view row-fluid span12">
 			
-			<section class="span4 current-temp"> 20 </section>
+			<section class="span4 current-weather-temp-container">
+				<section class="current-weather-temp center">20</section> 
+				<section class="current-feels-like center">Feels Like: 25</section>
+			</section>
 
-			<section class="span4"> SunImage </section>
+			<section class="span4 image-container">
+				 
+			</section>
 			
-			<article class="span4"> 
-				<section classs="row-fluid span12">Precipitation: 69</section>
-				<section classs="row-fluid span12">Humidity: 69</section>
-				<section classs="row-fluid ">Wind Speed: 69</section>
+			<article class="span4 current-weather-details-container"> 
+				<section class="row-fluid current-weather-details center">Precipitation: 69</section>
+				<section class="row-fluid current-weather-details center">Humidity: 69</section>
+				<section class="row-fluid current-weather-details center">Wind Speed: 69</section>
 			</article>
 		</section>
 
-		<section class="graph-view row-fluid span12">
-			<p>Graph View</p>
+		<section class="row span12 graph-view ">
+			<section class="graph-container">
+				<canvas id="canvas"></canvas>
+			</section>
 		</section>
 		
 		<section class="forecast-view row-fluid span12">
-			<section class="row-fluid span3 img-rounded day-container">Monday</section>
-			<section class="row-fluid span3 img-rounded day-container">Tuesday</section>
-			<section class="row-fluid span3 img-rounded day-container">Wednesday</section>
-			<section class="row-fluid span3 img-rounded day-container">Thurday</section>
+			<section class="row-fluid span3 forecast-containers">
+				<article class="img-rounded day-container">
+					<section class="day-container-title center">
+						Monday
+					</section>
+					<section class="day-container-image">
+
+					</section>
+					<article class="row-fluid day-container-range">
+						<section class="span6 center">17</section>
+						<section class="span6 center">25</section>
+					</article>
+				</article>
+			</section>
+			<section class="row-fluid span3 forecast-containers">
+				<article class="img-rounded day-container">
+					<section class="day-container-title">
+						Monday
+					</section>
+					<section class="day-container-image">
+
+					</section>
+					<article class="row-fluid day-container-range">
+						<section class="span6">17</section>
+						<section class="span6">25</section>
+					</article>
+				</article>
+			</section>
+			<section class="row-fluid span3 forecast-containers">
+				<article class="img-rounded day-container">
+					<section class="day-container-title">
+						Monday
+					</section>
+					<section class="day-container-image">
+
+					</section>
+					<article class="row-fluid day-container-range">
+						<section class="span6">17</section>
+						<section class="span6">25</section>
+					</article>
+				</article>
+			</section>
+			<section class="row-fluid span3 forecast-containers">
+				<article class="img-rounded day-container">
+					<section class="day-container-title">
+						Monday
+					</section>
+					<section class="day-container-image">
+
+					</section>
+					<article class="row-fluid day-container-range">
+						<section class="span6">17</section>
+						<section class="span6">25</section>
+					</article>
+				</article>
+			</section>
+			
 		</section>
 	</article>
 
@@ -37,6 +97,7 @@
 	<script src="js/libs/backbone/backbone.js"></script>
 	<script src="js/libs/bootstrap/bootstrap.min.js"></script>
 	<script src="js/libs/less/less.js"></script>
+	<script src="js/libs/charts/Chart.js"></script>
 	<script src="js/index.js"></script>
 	
 </body>

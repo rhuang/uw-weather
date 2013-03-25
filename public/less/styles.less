@@ -1,9 +1,10 @@
 @weather-container-height: 30%;
 @graph-container-height: 40%;
 @forecast-container-height:30%;
+@background-color: #E7E7E7;
 
 html{
-	background-color: #E7E7E7;
+	background-color: @background-color;
 	height: 100%
 }
 
@@ -28,9 +29,42 @@ body{
 	.bordered;
 }
 
-.weather-view .current-temp{
-	margin-top:50px;
-	font-size: 12em;
+.current-weather-temp-container{
+	height: 100%;
+}
+
+.weather-view .current-weather-temp{
+	height:70%;
+	font-size: 160px;
+	.bordered;
+}
+
+.weather-view .current-feels-like{
+	height:30%;
+	text-align: center;
+	.bordered;
+}
+
+.image-container{
+	width: 100%;
+	height:100%;
+}
+
+.current-weather-image{
+	.bordered;
+	height: 100%;
+	width: 100%;
+}
+
+
+.weather-view .current-weather-details-container{
+	height:100%;
+	.bordered;
+}
+
+.current-weather-details{
+	height:33%;
+	.bordered;
 }
 
 .graph-view{
@@ -38,14 +72,62 @@ body{
 	.bordered;
 }
 
+.graph-container{
+	.bordered;
+	height:100%;
+	width:100%;
+}
+
 .forecast-view{
 	height: @forecast-container-height;
 	.bordered;
 }
 
+.forecast-containers{
+	height:100%;
+}
+
 .day-container{
-	margin-top: 20px;
-	margin-top: 20px;
-	height:80%;
+	margin: 10% 10% 10% 10%;
+	height: 80%;
+	width:80%;
 	.bordered;
+}
+
+.day-container:hover{
+	background-color: @background-color;
+}
+
+.day-container-title{
+	text-align: center;
+	height:20%;
+	//.bordered
+}
+
+.day-container-image{
+	height:60%;
+	.bordered;
+}
+
+.day-container-range{
+	text-align: center;
+	height:20%;
+	//.bordered
+}
+
+.center {
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+	box-align:center;
 }
