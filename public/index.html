@@ -3,6 +3,19 @@
 <head>
 	<title>UW Weather</title>
 	<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+	<script type="text/template" id="forecast-template">
+	aaaa
+		<section class="row-fluid span3 forecast-containers">
+			<article class="img-rounded day-container">
+				<section class="day-container-title center"><%= Condition %></section>
+				<section class="day-container-image"></section>
+				<article class="row-fluid day-container-range">
+					<section class="span6 center"></section>
+					<section class="span6 center"></section>
+				</article>
+			</article>
+		</section>
+	</script>
 </head>
 
 <body>
@@ -31,65 +44,7 @@
 			</section>
 		</section>
 		
-		<section class="forecast-view row-fluid span12">
-			<section class="row-fluid span3 forecast-containers">
-				<article class="img-rounded day-container">
-					<section class="day-container-title center">
-						Monday
-					</section>
-					<section class="day-container-image">
-
-					</section>
-					<article class="row-fluid day-container-range">
-						<section class="span6 center">17</section>
-						<section class="span6 center">25</section>
-					</article>
-				</article>
-			</section>
-			<section class="row-fluid span3 forecast-containers">
-				<article class="img-rounded day-container">
-					<section class="day-container-title">
-						Monday
-					</section>
-					<section class="day-container-image">
-
-					</section>
-					<article class="row-fluid day-container-range">
-						<section class="span6">17</section>
-						<section class="span6">25</section>
-					</article>
-				</article>
-			</section>
-			<section class="row-fluid span3 forecast-containers">
-				<article class="img-rounded day-container">
-					<section class="day-container-title">
-						Monday
-					</section>
-					<section class="day-container-image">
-
-					</section>
-					<article class="row-fluid day-container-range">
-						<section class="span6">17</section>
-						<section class="span6">25</section>
-					</article>
-				</article>
-			</section>
-			<section class="row-fluid span3 forecast-containers">
-				<article class="img-rounded day-container">
-					<section class="day-container-title">
-						Monday
-					</section>
-					<section class="day-container-image">
-
-					</section>
-					<article class="row-fluid day-container-range">
-						<section class="span6">17</section>
-						<section class="span6">25</section>
-					</article>
-				</article>
-			</section>
-			
-		</section>
+		<section id="forecast" class="forecast-view row-fluid span12"/>
 	</article>
 
 	<script src="js/libs/jquery/jquery.js"></script>
