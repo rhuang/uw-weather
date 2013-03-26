@@ -33,6 +33,7 @@ window.WeatherModel = Backbone.Model.extend({
 });
 
 window.ForecastModel = Backbone.Model.extend({
+	urlRoot:"apis/weather",
 	defaults : {
 		"Condition" : null,
 		"Image" 	: null,
@@ -74,16 +75,45 @@ window.GraphView = Backbone.Collection.extend({
 });
 
 
-window.ForecastView = Backbone.Collection.extend({
-	
-    //template:_.template($('#').html()),
+window.ForecastItemView = Backbone.Collection.extend({
+
+    template:_.template($('#forecast-template').html()),
 
     initialize:function () {
     },
 
-    render:function (eventName) {
-      	$(this.el).html(this.template(this.model.toJSON()));
-        return this;
+    render:function (element) {
+    	var model = this.models[0].attributes.model;
+        $(element).html(this.template(model.toJSON()));
+        return element;
+    },
+
+    close:function(){
+    	$(element).remove();
+    }
+});
+
+window.ForecastView = Backbone.Collection.extend({
+
+    initialize:function () {
+    },
+
+    render:function (element) {
+
+    	var model = this.models[0].attributes.model;
+    	
+        _.each(model.models, function (forecast) {
+        	//alert(element);
+        	var fitem  = new ForecastItemView({model:forecast}).render("li");
+        	//alert(fitem);
+            element += fitem;
+            //alert(element);
+        }, this);
+        return element;
+    },
+
+    close:function(){
+    	$(element).empty();
     }
 });
 
@@ -95,12 +125,15 @@ var appRouter = Backbone.Router.extend({
 
 	displayWeather : function(){
 		var forecast = new WeatherCollection();
-		this.ForecastView = new ForecastView({model:this.forecast});
+		var forecastView = new ForecastView({model: forecast});
 
-		forecast.fetch( success: function(){
-         var a = hey;
-        });
-        //$('#').html(this.ForecastView.render().el);
+		forecast.fetch(
+			{ success: function(){
+				$('#forecast').html(forecastView.render(''));
+			}
+		});
+
+		
 	}
 });
 
