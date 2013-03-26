@@ -3,18 +3,28 @@
 <head>
 	<title>UW Weather</title>
 	<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+
+
 	<script type="text/template" id="forecast-template">
-	aaaa
 		<section class="row-fluid span3 forecast-containers">
 			<article class="img-rounded day-container">
 				<section class="day-container-title center"><%= Condition %></section>
 				<section class="day-container-image"></section>
 				<article class="row-fluid day-container-range">
-					<section class="span6 center"></section>
-					<section class="span6 center"></section>
+					<section class="span6 center"><%= High %></section>
+					<section class="span6 center"><%= Low %></section>
 				</article>
 			</article>
 		</section>
+	</script>
+	<script type="text/template" id="weather-template">
+			<section class="current-weather-temp center"><%= Temp %></section> 
+			<section class="current-feels-like center">Feels Like: </section>
+	</script>
+	<script type="text/template" id="weather-details-template">
+		<section class="row-fluid current-weather-details center">Precipitation: <%= Precipitation %></section>
+		<section class="row-fluid current-weather-details center">Humidity: <%= Humidity %></section>
+		<section class="row-fluid current-weather-details center">Wind Speed: <%= Wind %><%= WindDir%></section>
 	</script>
 </head>
 
@@ -22,20 +32,20 @@
 	<article class="container-fluid main-container">
 		<section class="weather-view row-fluid span12">
 			
-			<section class="span4 current-weather-temp-container">
-				<section class="current-weather-temp center">20</section> 
-				<section class="current-feels-like center">Feels Like: 25</section>
+			<section id="weather" class="span4 current-weather-temp-container">
+				<section class="current-weather-temp center"></section> 
+				<section class="current-feels-like center">Feels Like: </section>
 			</section>
 
-			<section class="span4 image-container">
+			<section id="weatherimage" class="span4 image-container">
 				 
 			</section>
 			
-			<article class="span4 current-weather-details-container"> 
-				<section class="row-fluid current-weather-details center">Precipitation: 69</section>
-				<section class="row-fluid current-weather-details center">Humidity: 69</section>
-				<section class="row-fluid current-weather-details center">Wind Speed: 69</section>
-			</article>
+			<section id="weatherdetails" class="span4 current-weather-details-container"> 
+				<section class="row-fluid current-weather-details center">Precipitation: </section>
+				<section class="row-fluid current-weather-details center">Humidity: </section>
+				<section class="row-fluid current-weather-details center">Wind Speed: </section>
+			</section>
 		</section>
 
 		<section class="row span12 graph-view ">
@@ -43,7 +53,6 @@
 				<canvas id="canvas"></canvas>
 			</section>
 		</section>
-		
 		<section id="forecast" class="forecast-view row-fluid span12"/>
 	</article>
 
@@ -55,6 +64,5 @@
 	<script src="js/libs/charts/Chart.js"></script>
     <script src="js/index.js"></script>
     <script src="js/chart_values.js"></script>
-	
 </body>
 </html>
