@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>UW Weather</title>
-	<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+  <head>
+    <title>UW Weather</title>
+    <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
 
 
-	<script type="text/template" id="forecast-template">
-		<section class="row-fluid span3 forecast-containers">
-			<article class="img-rounded day-container">
-				<section class="day-container-title center"><%= Condition %></section>
-				<section class="day-container-image"></section>
-				<article class="row-fluid day-container-range">
-					<section class="span6 center"><%= High %></section>
-					<section class="span6 center"><%= Low %></section>
-				</article>
-			</article>
-		</section>
-	</script>
-	<script type="text/template" id="weather-template">
-			<section class="current-weather-temp center"><%= Temp %></section> 
-			<section class="current-feels-like center">Feels Like: </section>
-	</script>
-	<script type="text/template" id="weather-details-template">
-		<section class="row-fluid current-weather-details center">Precipitation: <%= Precipitation %></section>
-		<section class="row-fluid current-weather-details center">Humidity: <%= Humidity %></section>
-		<section class="row-fluid current-weather-details center">Wind Speed: <%= Wind %><%= WindDir%></section>
-	</script>
-</head>
-
-<body>
-	<article class="container-fluid main-container">
-		<section class="weather-view row-fluid span12">
-			
-			<section id="weather" class="span4 current-weather-temp-container">
-				<section class="current-weather-temp center"></section> 
-				<section class="current-feels-like center">Feels Like: </section>
-			</section>
-
-			<section id="weatherimage" class="span4 image-container">
-				 
-			</section>
-			
-			<section id="weatherdetails" class="span4 current-weather-details-container"> 
-				<section class="row-fluid current-weather-details center">Precipitation: </section>
-				<section class="row-fluid current-weather-details center">Humidity: </section>
-				<section class="row-fluid current-weather-details center">Wind Speed: </section>
-			</section>
-		</section>
-
-		<section class="row span12 graph-view ">
-			<section class="graph-container">
-				<canvas id="canvas"></canvas>
-			</section>
-		</section>
-		<section id="forecast" class="forecast-view row-fluid span12"/>
+    <script type="text/template" id="forecast-template">
+      <section class="row-fluid span3 forecast-containers">
+	<article class="img-rounded day-container">
+	  <section class="day-container-title center"><%= Condition %></section>
+	  <section class="day-container-image">img goes here</section>
+	  <article class="row-fluid day-container-range">
+	    <section class="span6 center"><%= High %></section>
+	    <section class="span6 center"><%= Low %></section>
+	  </article>
 	</article>
+      </section>
+    </script>
+    <script type="text/template" id="weather-template">
+      <section class="current-weather-temp center"><%= Temp %></section> 
+      <section class="current-feels-like center">Feels Like: </section>
+    </script>
+    <script type="text/template" id="weather-details-template">
+      <section class="row-fluid current-weather-details center">Precipitation: <%= Precipitation %></section>
+      <section class="row-fluid current-weather-details center">Humidity: <%= Humidity %></section>
+      <section class="row-fluid current-weather-details center">Wind Speed: <%= Wind %><%= WindDir%></section>
+    </script>
+  </head>
 
-	<script src="js/libs/jquery/jquery.js"></script>
-	<script src="js/libs/underscore/underscore.js"></script>
-	<script src="js/libs/backbone/backbone.js"></script>
-	<script src="js/libs/bootstrap/bootstrap.min.js"></script>
-	<script src="js/libs/less/less.js"></script>
-	<script src="js/libs/charts/Chart.js"></script>
+  <body>
+    <article class="container-fluid main-container">
+      <section class="weather-view row-fluid span12">
+	
+	<section id="weather" class="span4 current-weather-temp-container">
+	  <section class="current-weather-temp center"></section> 
+	  <section class="current-feels-like center">Feels Like: </section>
+	</section>
+
+	<section id="weatherimage" class="span4 image-container">
+	  
+	</section>
+	
+	<section id="weatherdetails" class="span4 current-weather-details-container"> 
+	  <section class="row-fluid current-weather-details center">Precipitation: </section>
+	  <section class="row-fluid current-weather-details center">Humidity: </section>
+	  <section class="row-fluid current-weather-details center">Wind Speed: </section>
+	</section>
+      </section>
+
+      <section class="row span12 graph-view ">
+	<section class="graph-container">
+	  <canvas id="canvas"></canvas>
+	</section>
+      </section>
+      <section id="forecast" class="forecast-view row-fluid span12"/>
+    </article>
+
+    <script src="js/libs/jquery/jquery.js"></script>
+    <script src="js/libs/underscore/underscore.js"></script>
+    <script src="js/libs/backbone/backbone.js"></script>
+    <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="js/libs/less/less.js"></script>
+    <script src="js/libs/charts/Chart.js"></script>
     <script src="js/index.js"></script>
     <script src="js/chart_values.js"></script>
-</body>
+  </body>
 </html>
