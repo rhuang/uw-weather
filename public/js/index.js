@@ -57,14 +57,13 @@ window.WeatherCollection = Backbone.Collection.extend({
 
 
 window.ForecastItemView = Backbone.View.extend({
-
     template:_.template($('#forecast-template').html()),
 
     initialize:function () {
     },
 
     render:function () {
-	this.$el.html(this.template(this.model.toJSON()));
+	this.el = this.template(this.model.toJSON());
 	return this;
     },
 
@@ -79,10 +78,11 @@ window.ForecastView = Backbone.View.extend({
     },
 
     render:function () {
-	_.each(this.model.models, function (forecast) {
-	    this.$el.append(new ForecastItemView({model:forecast}).render().el);
-	}, this);
-	return this;
+    	this.el = "";
+    	_.each(this.model.models, function (forecast) {
+    		this.el += new ForecastItemView({model:forecast}).render().el;
+    	}, this);
+    	return this;
     },
 
     close:function(){
@@ -110,7 +110,7 @@ window.WeatherView = Backbone.View.extend({
     },
 
     render:function (eventName) {
-	this.$el.html(this.template(this.model.toJSON()));
+	this.el = this.template(this.model.toJSON());
 	return this;
     } 
 });
@@ -123,8 +123,9 @@ window.WeatherDetailsView = Backbone.View.extend({
     },
 
     render:function (eventName) {
-	this.$el.html(this.template(this.model.toJSON()));
+	this.el = this.template(this.model.toJSON())
 	return this;
+
     } 
 });
 
