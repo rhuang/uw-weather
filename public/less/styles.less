@@ -1,22 +1,19 @@
-@weather-container-height: 30%;
-@graph-container-height: 40%;
-@forecast-container-height:30%;
-@background-color: #E7E7E7;
+@weather-view-height: 30%;
+@graph-view-height: 40%;
+@forecast-view-height:30%;
+@max-height: 100%;
+@max-width: 100%;
+
+@body-background-color: #E7E7E7;
+@main-container-background-color: #FFFFFF;
 
 html{
-	background-color: @background-color;
-	height: 100%
+	height: @max-height;
 }
 
 body{
-	height:100%;
-	margin-left: 144px;
-	margin-right: 144px;
-	background-color: #FFFFFF;
-}
-
-.main-container{
-	height:100%;
+	background-color: @body-background-color;
+	height: @max-height;
 }
 
 .bordered{
@@ -24,110 +21,88 @@ body{
 	border-width: 1px;
 }
 
-.weather-view{
-	height: @weather-container-height;
+.center {
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	display:box;
+	box-pack:center;
+	box-align:center;
+}
+
+.main-container{
+	background-color: @main-container-background-color;
+	height: @max-height;
 	.bordered;
 }
 
-.current-weather-temp-container{
-	height: 100%;
+.weather-view{
+	height: @weather-view-height;
+	.bordered;
 }
 
-.weather-view .current-weather-temp{
+.weather-view .temp-container{
+	height: @max-height;
+	.bordered;
+}
+
+.weather-view .temp-container .real-temp{
 	height:70%;
 	font-size: 160px;
-	.bordered;
 }
 
-.weather-view .current-feels-like{
+.weather-view .temp-container .feels-like-temp{
 	height:30%;
-	text-align: center;
+}
+
+.weather-view .weather-image-container .weather-image{
+	height: @max-height;
+}
+
+.weather-view .weather-details-container{
+	height: @max-height;
 	.bordered;
 }
 
-.image-container{
-	width: 100%;
-	height:100%;
-}
-
-.current-weather-image{
-	.bordered;
-	height: 100%;
-	width: 100%;
-}
-
-
-.weather-view .current-weather-details-container{
-	height:100%;
-	.bordered;
-}
-
-.current-weather-details{
+.weather-view .weather-details-container .weather-details{
 	height:33%;
 	.bordered;
 }
 
 .graph-view{
-	height: @graph-container-height;
+	height: @graph-view-height;
 	.bordered;
-}
-
-.graph-container{
-	.bordered;
-	height:100%;
-	width:100%;
 }
 
 .forecast-view{
-	height: @forecast-container-height;
+	height: @forecast-view-height;
 	.bordered;
 }
 
-.forecast-containers{
-	height:100%;
+.forecast-view :hover{
+	background-color: @body-background-color;
 }
 
-.day-container{
-	margin: 10% 10% 10% 10%;
-	height: 80%;
-	width:80%;
+.forecast-view .forecast-container{
+	height: @max-height;
+	//.bordered;
+}
+
+.forecast-view .forecast-container .day-of-week{
+	height: 25%;
 	.bordered;
 }
 
-.day-container:hover{
-	background-color: @background-color;
+.forecast-view .forecast-container .weather-image{
+	height: 50%;
 }
 
-.day-container-title{
-	text-align: center;
-	height:20%;
-	//.bordered
-}
-
-.day-container-image{
-	height:60%;
+.forecast-view .forecast-container .weather-range{
+	height: 25%;
 	.bordered;
-}
-
-.day-container-range{
-	text-align: center;
-	height:20%;
-	//.bordered
-}
-
-.center {
-	/* Firefox */
-	display:-moz-box;
-	-moz-box-pack:center;
-	-moz-box-align:center;
-
-	/* Safari, Opera, and Chrome */
-	display:-webkit-box;
-	-webkit-box-pack:center;
-	-webkit-box-align:center;
-
-	/* W3C */
-	display:box;
-	box-pack:center;
-	box-align:center;
 }
