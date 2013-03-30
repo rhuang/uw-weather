@@ -19,7 +19,7 @@
     </script>
 
     <script type="text/template" id="weather-template">
-      <div class="real-temp center"> <%= Temp %> <sup>o<span class="centigrade-letter">C</span></sup> </div> 
+      <div class="real-temp center"> <%= Temp %> </div> 
       <div class="feels-like-temp center"> Feels Like: 25 </div>
     </script>
 
@@ -52,6 +52,7 @@
       </article>
     </section>
 
+    
     <script src="js/libs/jquery/jquery.js"></script>
     <script src="js/libs/underscore/underscore.js"></script>
     <script src="js/libs/backbone/backbone.js"></script>
