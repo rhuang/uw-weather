@@ -5,7 +5,7 @@ var http = require('http');
 
 var Request = function() {
     return this;
-}
+};
 
 /**
  * Format the query parameters into a query string to be appended to the URL.

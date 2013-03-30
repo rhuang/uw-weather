@@ -1,7 +1,7 @@
-var fs = require('fs'), 
-    path = require('path'); 
+var fs = require('fs'),
+    path = require('path');
 
-/** 
+/**
  * Reads the ./app/routes directory for all the routing files and initializes the routes.
  *
  * @param {Express} app The Express app object.
