@@ -1,3 +1,4 @@
 #!/bin/bash
+redis*/src/redis-server &
+nodemon server.js --watch app --watch node_modules --watch server.js --watch config.js --watch routing.js &
 
-nodemon server.js --watch app --watch node_modules --watch server.js --watch config.js --watch routing.js

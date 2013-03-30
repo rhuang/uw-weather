@@ -9,7 +9,8 @@
         "express": "3.0.6",
         "jade": "*",
         "winston": "*",
-        "nodemon": "*"
+        "nodemon": "*",
+        "redis": "*"
     },
     "engines": {
         "node": "0.10.1",
