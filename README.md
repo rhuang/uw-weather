@@ -8,4 +8,5 @@ Installation
 1. Clone the project: `git clone https://github.com/rhuang/uw-weather.git`.  
 2. Navigate to the project and install: `npm install -d`.  
 3. Install [nodemon](https://github.com/remy/nodemon) dependency: `sudo npm install nodemon -g`.  
-4. Run the start script: `./start`.  
+4. Run the Redis start script first: `/.startredis`.
+4. Run the Node.js start script: `./start`.  
