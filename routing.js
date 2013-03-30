@@ -1,5 +1,5 @@
 var fs = require('fs'), 
-    path = require('path');
+    path = require('path'); 
 
 /**
  * Reads the ./app/routes directory for all the routing files and initializes the routes.
