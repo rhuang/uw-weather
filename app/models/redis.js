@@ -1,7 +1,6 @@
 /**
  * A singleton class for the Redis instance to be used throughout the app. The Redis client is
- * created depending on the environment and is provided by getClient. This class also provides a
- * method to determine if Redis is in production or not.
+ * created depending on the environment and is provided by getClient.
  */
 var redis = require('redis');
 
@@ -25,17 +24,8 @@ var Redis = (function() {
         return client;
     }
 
-    /**
-     * @return {string} 'production' and 'development for production and development environment.
-     */
-    function getEnv() {
-        if (process.env.REDISTOGO_URL) return 'production';
-        else return 'development';
-    }
-
     return {
-        getClient: getClient,
-        getEnv: getEnv
+        getClient: getClient
     };
 })();
 

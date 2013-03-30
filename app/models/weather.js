@@ -29,7 +29,10 @@ WeatherModel.prototype.get = function(req, res, callback) {
                 } else {
                     w.info('Redis set key for: ' + url);
                     redis.set(url, JSON.stringify(data));
-                    redis.expire(url, WeatherModel.EXPIRY_PERIOD_);
+                    // Set timeout if in production.
+                    if (app.settings.env === 'production') {
+                        redis.expire(url, WeatherModel.TIMEOUT_);
+                    }
                     callback(data);
                 }
             });
@@ -43,7 +46,7 @@ WeatherModel.prototype.get = function(req, res, callback) {
     });
 };
 
-WeatherModel.EXPIRY_PERIOD_ = 900;
+WeatherModel.TIMEOUT_ = 900;
 
 module.exports = WeatherModel;
 

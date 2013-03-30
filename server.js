@@ -8,7 +8,7 @@ var express = require('express'),
     Routes = require(__dirname + '/routing'),
     redis = require('redis');
 
-var app = express();
+app = express();
 
 app.configure(function(){
     app.set('port', process.env.PORT || 5000);
