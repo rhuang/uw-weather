@@ -1,15 +1,18 @@
 /**
  * Methods for GET, POST, UPDATE, DELETE HTTP requests with URL and parameters.
  */
-
 var http = require('http');
+
+var Request = function() {
+    return this;
+}
 
 /**
  * Format the query parameters into a query string to be appended to the URL.
  *
  * @param {Object} params An object with the query parameters as the key.
  */
-var formatParams = function(params) {
+var formatParams_ = function(params) {
     if (params) {
         var requests = [];
         for (var key in params) {
@@ -29,9 +32,9 @@ var formatParams = function(params) {
  * @param {Object} params Object with the param parameters as the key and value.
  * @param {function} done The callback function to be executed after request is complete.
  */
-exports.get = function(url, params, done) {
+Request.prototype.get = function(url, params, done) {
     var data = '';
-    http.get(url + formatParams(params), function(res) {
+    http.get(url + this.formatParams_(params), function(res) {
         res.setEncoding('utf8');
         res.on('data', function(chunk) {
             data += chunk;
@@ -43,4 +46,6 @@ exports.get = function(url, params, done) {
         });
     });
 };
+
+module.exports = Request;
 

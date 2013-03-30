@@ -1,7 +1,7 @@
 /**
  * Service for retrieving the data from the external api, parsing the data, and returning it.
  */
-var request = require('./request'),
+var Request = require('./request'),
     configs = require('./../../config'),
     w = require('winston'),
     redis = require('./redis').getClient();
@@ -23,7 +23,7 @@ WeatherModel.prototype.get = function(req, res, callback) {
         if (err) {
             w.error(err);
         } else if (!value) {
-            request.get(url, {}, function(err, data) {
+            new Request().get(url, {}, function(err, data) {
                 if (err) {
                     w.error(err);
                 } else {
