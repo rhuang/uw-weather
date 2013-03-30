@@ -4,9 +4,11 @@
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    w = require('winston');
+    w = require('winston'),
+    Routes = require(__dirname + '/routing'),
+    redis = require('redis');
 
-var app = express();
+app = express();
 
 app.configure(function(){
     app.set('port', process.env.PORT || 5000);
@@ -24,8 +26,8 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
-// Contains all the routing information.
-require(__dirname + '/routing')(app);
+// Routing paths.
+var routes = new Routes(app);
 
 http.createServer(app).listen(app.get('port'), function(){
     w.info("Express server listening on port " + app.get('port'));
