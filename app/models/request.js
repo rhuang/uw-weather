@@ -34,7 +34,7 @@ var formatParams_ = function(params) {
  */
 Request.prototype.get = function(url, params, done) {
     var data = '';
-    http.get(url + this.formatParams_(params), function(res) {
+    http.get(url + formatParams_(params), function(res) {
         res.setEncoding('utf8');
         res.on('data', function(chunk) {
             data += chunk;

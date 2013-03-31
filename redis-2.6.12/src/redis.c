@@ -114,7 +114,7 @@ struct redisCommand *commandTable;
  */
 struct redisCommand redisCommandTable[] = {
     {"get",getCommand,2,"r",0,NULL,1,1,1,0,0},
-    {"set",setCommand,3,"wm",0,noPreloadGetKeys,1,1,1,0,0},
+    {"set",setCommand,-3,"wm",0,noPreloadGetKeys,1,1,1,0,0},
     {"setnx",setnxCommand,3,"wm",0,noPreloadGetKeys,1,1,1,0,0},
     {"setex",setexCommand,4,"wm",0,noPreloadGetKeys,1,1,1,0,0},
     {"psetex",psetexCommand,4,"wm",0,noPreloadGetKeys,1,1,1,0,0},
@@ -197,7 +197,7 @@ struct redisCommand redisCommandTable[] = {
     {"mset",msetCommand,-3,"wm",0,NULL,1,-1,2,0,0},
     {"msetnx",msetnxCommand,-3,"wm",0,NULL,1,-1,2,0,0},
     {"randomkey",randomkeyCommand,1,"rR",0,NULL,0,0,0,0,0},
-    {"select",selectCommand,2,"r",0,NULL,0,0,0,0,0},
+    {"select",selectCommand,2,"rl",0,NULL,0,0,0,0,0},
     {"move",moveCommand,3,"w",0,NULL,1,1,1,0,0},
     {"rename",renameCommand,3,"w",0,renameGetKeys,1,2,1,0,0},
     {"renamenx",renamenxCommand,3,"w",0,renameGetKeys,1,2,1,0,0},
@@ -236,7 +236,7 @@ struct redisCommand redisCommandTable[] = {
     {"unsubscribe",unsubscribeCommand,-1,"rpslt",0,NULL,0,0,0,0,0},
     {"psubscribe",psubscribeCommand,-2,"rpslt",0,NULL,0,0,0,0,0},
     {"punsubscribe",punsubscribeCommand,-1,"rpslt",0,NULL,0,0,0,0,0},
-    {"publish",publishCommand,3,"pflt",0,NULL,0,0,0,0,0},
+    {"publish",publishCommand,3,"pfltr",0,NULL,0,0,0,0,0},
     {"watch",watchCommand,-2,"rs",0,noPreloadGetKeys,1,-1,1,0,0},
     {"unwatch",unwatchCommand,1,"rs",0,NULL,0,0,0,0,0},
     {"restore",restoreCommand,4,"awm",0,NULL,1,1,1,0,0},
@@ -825,7 +825,8 @@ void clientsCron(void) {
 void databasesCron(void) {
     /* Expire keys by random sampling. Not required for slaves
      * as master will synthesize DELs for us. */
-    if (server.masterhost == NULL) activeExpireCycle();
+    if (server.active_expire_enabled && server.masterhost == NULL)
+        activeExpireCycle();
 
     /* Perform hash tables rehashing if needed, but only if there are no
      * other processes saving the DB on disk. Otherwise rehashing is bad
@@ -1156,6 +1157,7 @@ void initServerConfig() {
     server.verbosity = REDIS_NOTICE;
     server.maxidletime = REDIS_MAXIDLETIME;
     server.tcpkeepalive = 0;
+    server.active_expire_enabled = 1;
     server.client_max_querybuf_len = REDIS_MAX_QUERYBUF_LEN;
     server.saveparams = NULL;
     server.loading = 0;
@@ -1185,6 +1187,7 @@ void initServerConfig() {
     server.requirepass = NULL;
     server.rdb_compression = 1;
     server.rdb_checksum = 1;
+    server.stop_writes_on_bgsave_err = 1;
     server.activerehashing = 1;
     server.maxclients = REDIS_MAX_CLIENTS;
     server.bpop_blocked_clients = 0;
@@ -1221,7 +1224,7 @@ void initServerConfig() {
     server.repl_syncio_timeout = REDIS_REPL_SYNCIO_TIMEOUT;
     server.repl_serve_stale_data = 1;
     server.repl_slave_ro = 1;
-    server.repl_down_since = time(NULL);
+    server.repl_down_since = 0; /* Never connected, repl is down since EVER. */
     server.repl_disable_tcp_nodelay = 0;
     server.slave_priority = REDIS_DEFAULT_SLAVE_PRIORITY;
 
@@ -1392,7 +1395,6 @@ void initServer() {
     server.ops_sec_last_sample_ops = 0;
     server.unixtime = time(NULL);
     server.lastbgsave_status = REDIS_OK;
-    server.stop_writes_on_bgsave_err = 1;
     if(aeCreateTimeEvent(server.el, 1, serverCron, NULL, NULL) == AE_ERR) {
         redisPanic("create time event failed");
         exit(1);
@@ -2603,7 +2605,7 @@ void loadDataFromDisk(void) {
             redisLog(REDIS_NOTICE,"DB loaded from disk: %.3f seconds",
                 (float)(ustime()-start)/1000000);
         } else if (errno != ENOENT) {
-            redisLog(REDIS_WARNING,"Fatal error loading the DB. Exiting.");
+            redisLog(REDIS_WARNING,"Fatal error loading the DB: %s. Exiting.",strerror(errno));
             exit(1);
         }
     }
