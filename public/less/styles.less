@@ -93,11 +93,12 @@ body{
 .graph-view{
 	height: @graph-view-height;
 	.bordered;
+	border-bottom: none;
 }
 
 .forecast-view{
 	height: @forecast-view-height;
-	.bordered;
+	//.bordered;
 }
 
 .forecast-view :hover{
@@ -106,7 +107,7 @@ body{
 
 .forecast-view .forecast-container{
 	height: @max-height;
-	//.bordered;
+	.bordered;
 }
 
 .forecast-view .forecast-container .day-of-week{

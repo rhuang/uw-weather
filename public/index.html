@@ -11,9 +11,9 @@
       <section class="forecast-container span3">
 	<div class="day-of-week center"><%= Day %></div>
 	<img class="weather-image" src="" width="100%" height="100%">
-	<div class="row-fluid weather-range">
-	  <div class="span6">High: <%= High %></div>
-	  <div class="span6">Low: <%= Low %></div>
+	<div class="weather-range">
+	  <div class="span6 ">High: <%= High %></div>
+	  <div class="span6 ">Low: <%= Low %></div>
 	</div>
       </section>
     </script>
@@ -27,6 +27,33 @@
       <div class="weather-details center">Precipitation: <%= Precipitation %></div>
       <div class="weather-details center">Humidity: <%= Humidity %></div>
       <div class="weather-details center">Wind Speed: <%= Wind %><%= WindDir%></div>
+    </script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'Temp'],
+          ['9:00PM',  -1],
+          ['9:15PM',  -2],
+          ['9:30PM',  -3],
+          ['9:45PM',  -3],
+          ['10:00PM', -4],
+          ['10:15PM', -3],
+          ['10:30PM', -2],
+        ]);
+
+        var options = {
+          title: 'Weather History',
+          hAxis: {title: 'Time Intervals'}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
     </script>
 
   </head>
@@ -44,7 +71,7 @@
       </article>
 
       <article class="row-fluid graph-view">
-	<canvas id="canvas"></canvas>
+        <div id="chart_div" style="width: 100%; height: 90%;"></div>
       </article>
 
       <article class="row-fluid forecast-view" id="forecast">
@@ -57,9 +84,6 @@
     <script src="js/libs/backbone/backbone.js"></script>
     <script src="js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="js/libs/less/less.js"></script>
-    <script src="js/libs/charts/Chart.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/chart_values.js"></script>
-    
   </body>
 </html>
