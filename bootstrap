@@ -1,0 +1,6 @@
+#!/bin/bash
+npm install -d
+cd redis-2.6.11
+make
+cd ..
+
