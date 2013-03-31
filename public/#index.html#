@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UW Weather</title>
+
+    <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="text/template" id="forecast-template">	
+      <section class="forecast-container span3">
+	<div class="day-of-week center"><%= Day %></div>
+	<img class="weather-image" src="" width="100%" height="100%">
+	<div class="row-fluid weather-range">
+	  <div class="span6">High: <%= High %></div>
+	  <div class="span6">Low: <%= Low %></div>
+	</div>
+      </section>
+    </script>
+
+    <script type="text/template" id="weather-template">
+      <div class="real-temp center"> <%= Temp %> </div> 
+      <div class="feels-like-temp center"> Feels Like: 25 </div>
+    </script>
+
+    <script type="text/template" id="weather-details-template">
+      <div class="weather-details center">Precipitation: <%= Precipitation %></div>
+      <div class="weather-details center">Humidity: <%= Humidity %></div>
+      <div class="weather-details center">Wind Speed: <%= Wind %><%= WindDir%></div>
+    </script>
+
+  </head>
+
+  <body>
+    <section class="container main-container">
+
+      <article class="row-fluid weather-view">
+	<section class="temp-container span4" id="weather"></section>
+	<section class="weather-image-container span4">
+	  <img src="" class="weather-image">
+	</section>
+	<section class="weather-details-container span4" id="weatherdetails">
+	</section>
+      </article>
+
+      <article class="row-fluid graph-view">
+	<canvas id="canvas"></canvas>
+      </article>
+
+      <article class="row-fluid forecast-view" id="forecast">
+	<section class="forecast-container span3"/>
+      </article>
+    </section>
+
+    
+    <script src="js/libs/jquery/jquery.js"></script>
+    <script src="js/libs/underscore/underscore.js"></script>
+    <script src="js/libs/backbone/backbone.js"></script>
+    <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="js/libs/less/less.js"></script>
+    <script src="js/libs/charts/Chart.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/chart_values.js"></script>
+    
+  </body>
+</html>
