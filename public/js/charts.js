@@ -24,7 +24,7 @@ function drawChart() {
         var options = {
             title : 'Weather',
             hAxis : { title: 'Time Intervals' },
-            animation : { duration : 1000, easing : 'linear' }
+            animation : { duration : 1000, easing : 'out' }
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
