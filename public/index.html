@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>UW Weather</title>
 
-    <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
     
     <script type="text/template" id="forecast-template">	
       <section class="forecast-container span3">
@@ -37,64 +37,47 @@
         </div>
       </div>
       <div class="feels-like-temp center"> Feels Like: 25 </div>
-
-
+      <div class="feels-like-temp center"> Wind Chill: <%=Windchill %> </div>
     </script>
 
     <script type="text/template" id="weather-details-template">
-      <div class="weather-details center">Precipitation: <%= Precipitation %></div>
-      <div class="weather-details center">Humidity: <%= Humidity %></div>
-      <div class="weather-details center">Wind Speed: <%= Wind %><%= WindDir%></div>
+        <div class="weather-details center">Precipitation: <%= Precipitation %>mm</div>
+        <div class="weather-details center">Humidity: <%= Humidity %>&#37;</div>
+        <div class="weather-details center">Wind Speed <%= Wind %> km/hr  <%= WindDir%></div>
     </script>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Time', 'Temp'],
-          ['9:00PM',  -1],
-          ['9:15PM',  -2],
-          ['9:30PM',  -3],
-          ['9:45PM',  -3],
-          ['10:00PM', -4],
-          ['10:15PM', -3],
-          ['10:30PM', -2],
-        ]);
+    <script type="text/javascript" src="js/charts.js"></script>
 
-        var options = {
-          title: 'Weather History',
-          hAxis: {title: 'Time Intervals'}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
+    <script type="text/template" id="forecast-template">
+        <section class="forecast-container span3">
+            <div class="day-of-week center"><%= Day %></div>
+            <img class="weather-image" src="" width="100%" height="100%">
+            <div class="weather-range">
+                <div class="span6 ">High: <%= High %></div>
+                <div class="span6 ">Low: <%= Low %></div>
+            </div>
+        </section>
     </script>
+</head>
 
-  </head>
-
-  <body>
+<body>
     <section class="container main-container">
+        <article class="row-fluid weather-view">
+            <section class="temp-container span4" id="weather"></section>
+            <section class="weather-image-container span4">
+                <img src="" class="weather-image">
+            </section>
+            <section class="weather-details-container span4" id="weatherdetails"></section>
+        </article>
 
-      <article class="row-fluid weather-view">
-	<section class="temp-container span4" id="weather"></section>
-	<section class="weather-image-container span4">
-	  <img src="" class="weather-image">
-	</section>
-	<section class="weather-details-container span4" id="weatherdetails">
-	</section>
-      </article>
+        <article class="row-fluid graph-view">
+            <div id="chart_div" style="width: 100%; height: 90%;"></div>
+        </article>
 
-      <article class="row-fluid graph-view">
-        <div id="chart_div" style="width: 100%; height: 90%;"></div>
-      </article>
-
-      <article class="row-fluid forecast-view" id="forecast">
-	<section class="forecast-container span3"/>
-      </article>
+        <article class="row-fluid forecast-view" id="forecast">
+            <section class="forecast-container span3"></section>
+        </article>
     </section>
 
     <script src="js/libs/jquery/jquery.js"></script>
@@ -103,5 +86,5 @@
     <script src="js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="js/libs/less/less.js"></script>
     <script src="js/index.js"></script>
-  </body>
+</body>
 </html>
