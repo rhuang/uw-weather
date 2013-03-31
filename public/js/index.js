@@ -42,7 +42,7 @@ window.ForecastModel = Backbone.Model.extend({
 	"condition"	:null,
 	"image"		:null,
 	"high"		:null,
-	"low"		:null  
+	"low"		:null
     }
 });
 
@@ -78,11 +78,11 @@ window.ForecastView = Backbone.View.extend({
     },
 
     render:function () {
-    	this.el = "";
-    	_.each(this.model.models, function (forecast) {
-    		this.el += new ForecastItemView({model:forecast}).render().el;
-    	}, this);
-    	return this;
+        this.el = "";
+        _.each(this.model.models, function (forecast) {
+            this.el += new ForecastItemView({model:forecast}).render().el;
+        }, this);
+        return this;
     },
 
     close:function(){
@@ -99,7 +99,7 @@ window.GraphView = Backbone.View.extend({
     },
 
     render:function (eventName) {
-    } 
+    }
 });
 
 window.WeatherView = Backbone.View.extend({
@@ -112,7 +112,7 @@ window.WeatherView = Backbone.View.extend({
     render:function (eventName) {
 	this.el = this.template(this.model.toJSON());
 	return this;
-    } 
+    }
 });
 
 window.WeatherDetailsView = Backbone.View.extend({
@@ -123,10 +123,10 @@ window.WeatherDetailsView = Backbone.View.extend({
     },
 
     render:function (eventName) {
-	this.el = this.template(this.model.toJSON())
+	this.el = this.template(this.model.toJSON());
 	return this;
 
-    } 
+    }
 });
 
 var appRouter = Backbone.Router.extend({
@@ -136,25 +136,24 @@ var appRouter = Backbone.Router.extend({
 
     displayWeather : function(){
 
-	var weather 		= new WeatherModel();
-	var forecast 		= new WeatherCollection();
-	var weatherView 	= new WeatherView({model:weather});
-	var weatherDetailsView 	= new WeatherDetailsView({model:weather});
-	var forecastView 	= new ForecastView({model:forecast});
+        var weather = new WeatherModel();
+        var forecast = new WeatherCollection();
+        var weatherView = new WeatherView({model:weather});
+        var weatherDetailsView = new WeatherDetailsView({model:weather});
+        var forecastView = new ForecastView({model:forecast});
 
+        forecast.fetch({
+            success: function(){
+                $('#forecast').html(forecastView.render().el);
+            }
+        });
 
-	forecast.fetch({ 
-	    success: function(){
-		$('#forecast').html(forecastView.render().el);
-	    }
-	});
-
-	weather.fetch({
-	    success: function(){
-		$('#weather').html(weatherView.render().el);
-		$('#weatherdetails').html(weatherDetailsView.render().el);
-	    }
-	})
+        weather.fetch({
+            success: function(){
+                $('#weather').html(weatherView.render().el);
+                $('#weatherdetails').html(weatherDetailsView.render().el);
+            }
+        });
     }
 });
 
