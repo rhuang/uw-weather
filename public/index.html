@@ -6,16 +6,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+    
+    <script type="text/template" id="forecast-template">	
+      <section class="forecast-container span3">
+	<div class="day-of-week center"><%= Day %></div>
+	<img class="weather-image" src="" width="100%" height="100%">
+	<div class="weather-range">
+    <div class="weather-range-inner">
+    <div class="temp-ranges-container">
+  	  <div class="span6 temp-ranges">High: <%= High %></div>
+  	  <div class="span6 temp-ranges">Low: <%= Low %></div>
+    </div>
+    </div>
+	</div>
+      </section>
+    </script>
 
     <script type="text/template" id="weather-template">
-        <div class="real-temp center"> <%= Temp %> </div>
-        <div class="feels-like-temp center"> Wind Chill: <%=Windchill %> </div>
+        <div class="real-temp"> 
+        <div class="real-temp-inner row fluid">
+          <div class="large-text-container span10">
+              <div class="large-text center">
+            <%= Temp %>
+            </div>
+          </div>
+          <div class="span2 degree">
+            &deg;
+            <span class= "celsius">C</span>
+          </div>
+        </div>
+      </div>
+      <div class="feels-like-temp center"> Feels Like: 25 </div>
+      <div class="feels-like-temp center"> Wind Chill: <%=Windchill %> </div>
     </script>
 
     <script type="text/template" id="weather-details-template">
         <div class="weather-details center">Precipitation: <%= Precipitation %>mm</div>
         <div class="weather-details center">Humidity: <%= Humidity %>&#37;</div>
-        <div class="weather-details center">Wind Speed, Direction: <%= Wind %> km/hr , <%= WindDir%></div>
+        <div class="weather-details center">Wind Speed <%= Wind %> km/hr  <%= WindDir%></div>
     </script>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>

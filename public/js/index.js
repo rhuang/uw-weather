@@ -135,7 +135,7 @@ var appRouter = Backbone.Router.extend({
     },
 
     displayWeather : function(){
-
+        
         var weather = new WeatherModel();
         var forecast = new WeatherCollection();
         var weatherView = new WeatherView({model:weather});
