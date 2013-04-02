@@ -7,6 +7,8 @@
 @body-background-color: #E7E7E7;
 @main-container-background-color: #FFFFFF;
 
+@forecast-background: "../imgs/haze_weather_icons.png";
+
 html{
 	height: @max-height;
 }
@@ -44,6 +46,8 @@ body{
 	background-color: @main-container-background-color;
 	height: @max-height;
 	.bordered;
+	
+	
 }
 
 .weather-view{
@@ -53,7 +57,7 @@ body{
 
 .weather-view .temp-container{
 	height: @max-height;
-	.bordered;
+	
 }
 
 .weather-view .temp-container .real-temp{
@@ -97,7 +101,7 @@ body{
 
 .weather-view .weather-details-container{
 	height: @max-height;
-	.bordered;
+	
 }
 
 .weather-view .weather-details-container .weather-details{
@@ -129,16 +133,46 @@ body{
 .forecast-view .forecast-container .day-of-week{
 	height: 25%;
 	width:	100%;
-	.bordered;
+	
 }
 
 .forecast-view .forecast-container .weather-image{
 	height: 50%;
 }
 
+.sunny-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: -340px -335px;
+}
+
+.chance-of-storm-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: -530px -328px;
+}
+
+.clear-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: -340px -335px;
+}
+
+.rain-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: 25px -328px; 
+}
+
+.chance-of-flurries-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: -350px -15px;
+}
+
+.cloudy-image-forecast{
+	background-image: url("@{forecast-background}");
+	background-position: 25px -25px; 
+}
+
+
 .forecast-view .forecast-container .weather-range{
 	height: 25%;
-	.bordered;
 	text-align:center;
 }
 
@@ -150,6 +184,5 @@ body{
 .forecast-view .forecast-container .temp-ranges-container{
 	height:100%;
 	width:100%;
-	
 }
 
