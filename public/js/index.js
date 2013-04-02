@@ -1,4 +1,16 @@
 
+/*needs to go into some global file/class ?*/
+
+var FORECAST_TYPES = {
+  SUNNY                 : {value: "Mostly sunny"        ,   className: "sunny-image-forecast"},
+  CHANCE_OF_STORM       : {value: "Chance of storm"     ,   className: "chance-of-storm-image-forecast"},
+  CLEAR                 : {value: "Clear"               ,   className: "clear-image-forecast"},
+  RAIN                  : {value: "Rain"                ,   className: "rain-image-forecast"},
+  CHANCE_OF_FLURRIES    : {value: "Chance of flurries"  ,   className: "chance-of-flurries-image-forecast"},
+  CLOUDY                : {value: "Cloudy"              ,   className: "cloudy-image-forecast"}
+};
+
+
 window.WeatherModel = Backbone.Model.extend({
     urlRoot : "apis/weather",
     defaults :{
@@ -57,14 +69,32 @@ window.WeatherCollection = Backbone.Collection.extend({
 
 
 window.ForecastItemView = Backbone.View.extend({
+
     template:_.template($('#forecast-template').html()),
+
+    tagName : "section",
+    className : "forecast-container span3",
 
     initialize:function () {
     },
 
     render:function () {
-	this.el = this.template(this.model.toJSON());
-	return this;
+        this.$el.html(this.template(this.model.toJSON()));
+
+        var foreCastClass = "";
+        switch(this.model.attributes.Condition){
+            case "Mostly sunny"         : foreCastClass = "sunny-image-forecast" ; break;
+            case "Chance of storm"      : foreCastClass = "chance-of-storm-image-forecast" ; break;
+            case "Clear"                : foreCastClass = "clear-image-forecast" ; break;
+            case "Rain"                 : foreCastClass = "rain-image-forecast" ; break;
+            case "Chance of flurries"   : foreCastClass = "chance-of-flurries-image-forecast" ; break;
+            case "Cloudy"               : foreCastClass = "cloudy-image-forecast" ; break;
+            default                     : foreCastClass = "sunny-image-forecast" ; /*not a great default, need image not found*/
+        }
+
+
+        this.el.querySelector('.weather-image').classList.add(foreCastClass);
+        return this;
     },
 
     close:function(){
@@ -74,13 +104,14 @@ window.ForecastItemView = Backbone.View.extend({
 
 window.ForecastView = Backbone.View.extend({
 
+    el : '#forecast' ,
+
     initialize:function () {
     },
 
     render:function () {
-        this.el = "";
         _.each(this.model.models, function (forecast) {
-            this.el += new ForecastItemView({model:forecast}).render().el;
+            this.$el.append(new ForecastItemView({model:forecast}).render().el) ;
         }, this);
         return this;
     },
@@ -135,7 +166,7 @@ var appRouter = Backbone.Router.extend({
     },
 
     displayWeather : function(){
-        
+
         var weather = new WeatherModel();
         var forecast = new WeatherCollection();
         var weatherView = new WeatherView({model:weather});
@@ -144,7 +175,8 @@ var appRouter = Backbone.Router.extend({
 
         forecast.fetch({
             success: function(){
-                $('#forecast').html(forecastView.render().el);
+
+                forecastView.render();
             }
         });
 
