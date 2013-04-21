@@ -33,23 +33,23 @@
             <div class="row">
                 <div class="span12">
                     <div class="weather">
-                       <h1>50°</h1>
+                       <h1><%= Temp %>°</h1>
                         <div class="weather-details">
                             <div class="detail">
                                 <h2>Windchill</h2>
-                                <span>25°</span>
+                                <span><%=Windchill %>°</span>
                             </div>
                             <div class="detail">
                                 <h2>Humidity</h2>
-                                <span>85.1%</span>
+                                <span><%= Humidity %>%</span>
                             </div>
                             <div class="detail">
                                 <h2>Precipitation</h2>
-                                <span>1.6mm</span>
+                                <span><%= Precipitation %>mm</span>
                             </div>
                             <div class="detail">
                                 <h2>Wind Speed</h2>
-                                <span> 9.5 km/hr NW</span>
+                                <span> <%= Wind %> km/hr NW</span>
                             </div>
                         </div>
                     </div>
