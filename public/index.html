@@ -10,42 +10,52 @@
     <script type="text/template" id="forecast-template">	
 
 	<div class="day-of-week center"><%= Day %></div>
-    <div class="weather-image">
-    <img width="100%" height="100%"/>
-    </div>
-	
-	<div class="weather-range">
-    <div class="weather-range-inner">
-    <div class="temp-ranges-container">
-  	  <div class="span6 temp-ranges">High: <%= High %></div>
-  	  <div class="span6 temp-ranges">Low: <%= Low %></div>
-    </div>
-    </div>
-	</div>
+        <div class="weather-image">
+            <div width="100%" height="100%"/>
+        </div>
+    	
+    	<div class="weather-range">
+            <div class="weather-range-inner">
+                 <div class="temp-ranges-container">
+              	     <div class="span6 temp-ranges">High: <%= High %></div>
+              	     <div class="span6 temp-ranges">Low: <%= Low %></div>
+                 </div>
+            </div>
+        </div>
      
     </script>
 
     <script type="text/template" id="weather-template">
-        <div class="real-temp"> 
-        <div class="real-temp-inner row fluid">
-          <div class="large-text-container span10">
-              <div class="large-text center">
-            <%= Temp %>
-            </div>
-          </div>
-          <div class="span2 degree">
-            &deg;
-            <span class= "celsius">C</span>
-          </div>
-        </div>
-      </div>
-      <div class="feels-like-temp center"> Wind Chill: <%=Windchill %> </div>
     </script>
 
     <script type="text/template" id="weather-details-template">
-        <div class="weather-details center">Precipitation: <%= Precipitation %>mm</div>
-        <div class="weather-details center">Humidity: <%= Humidity %>&#37;</div>
-        <div class="weather-details center">Wind Speed <%= Wind %> km/hr  <%= WindDir%></div>
+        <div class="weather-container">
+            <div class="row">
+                <div class="span12">
+                    <div class="weather">
+                       <h1>50°</h1>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <h2>Windchill</h2>
+                                <span>25°</span>
+                            </div>
+                            <div class="detail">
+                                <h2>Humidity</h2>
+                                <span>85.1%</span>
+                            </div>
+                            <div class="detail">
+                                <h2>Precipitation</h2>
+                                <span>1.6mm</span>
+                            </div>
+                            <div class="detail">
+                                <h2>Wind Speed</h2>
+                                <span> 9.5 km/hr NW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -64,13 +74,15 @@
 </head>
 
 <body>
-    <section class="container main-container">
-        <article class="row-fluid weather-view">
-            <section class="temp-container span4" id="weather"></section>
-            <section class="weather-image-container span4">
-                <img src="" class="weather-image">
-            </section>
-            <section class="weather-details-container span4" id="weatherdetails"></section>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="background"></div>
+
+    <section class="main-container">
+        <article class="row-fluid weather-view ">
+           
+            <section class="weather-details-container" id="weatherdetails"></section>
         </article>
 
         <article class="row-fluid graph-view">
@@ -86,5 +98,7 @@
     <script src="js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="js/libs/less/less.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/rain.js"></script>
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </body>
 </html>
