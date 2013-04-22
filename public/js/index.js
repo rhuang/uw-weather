@@ -83,12 +83,14 @@ window.ForecastItemView = Backbone.View.extend({
 
         var foreCastClass = "";
         switch(this.model.attributes.Condition){
+            
             case "Mostly sunny"         : foreCastClass = "sunny-image-forecast" ; break;
             case "Chance of storm"      : foreCastClass = "chance-of-storm-image-forecast" ; break;
             case "Clear"                : foreCastClass = "clear-image-forecast" ; break;
             case "Rain"                 : foreCastClass = "rain-image-forecast" ; break;
             case "Chance of flurries"   : foreCastClass = "chance-of-flurries-image-forecast" ; break;
             case "Cloudy"               : foreCastClass = "cloudy-image-forecast" ; break;
+
             default                     : foreCastClass = "sunny-image-forecast" ; /*not a great default, need image not found*/
         }
 
