@@ -1,15 +1,4 @@
 
-/*needs to go into some global file/class ?*/
-
-var FORECAST_TYPES = {
-  SUNNY                 : {value: "Mostly sunny"        ,   className: "sunny-image-forecast"},
-  CHANCE_OF_STORM       : {value: "Chance of storm"     ,   className: "chance-of-storm-image-forecast"},
-  CLEAR                 : {value: "Clear"               ,   className: "clear-image-forecast"},
-  RAIN                  : {value: "Rain"                ,   className: "rain-image-forecast"},
-  CHANCE_OF_FLURRIES    : {value: "Chance of flurries"  ,   className: "chance-of-flurries-image-forecast"},
-  CLOUDY                : {value: "Cloudy"              ,   className: "cloudy-image-forecast"}
-};
-
 
 window.WeatherModel = Backbone.Model.extend({
     urlRoot : "apis/weather",
@@ -31,18 +20,6 @@ window.WeatherModel = Backbone.Model.extend({
 	"high"		:null,
 	"low"		:null
     },
-
-    /*
-
-      parse : function() {
-      WeatherModel wm = new WeatherModel({
-      date: reponse.date,
-      day: response.current.day
-      });
-      return wm;
-      }
-    */
-
     parse : function(response){
 	return response.response.data.Current;
     }
@@ -80,21 +57,8 @@ window.ForecastItemView = Backbone.View.extend({
 
     render:function () {
         this.$el.html(this.template(this.model.toJSON()));
-
-        var foreCastClass = "";
-        switch(this.model.attributes.Condition){
-            
-            case "Mostly sunny"         : foreCastClass = "sunny-image-forecast" ; break;
-            case "Chance of storm"      : foreCastClass = "chance-of-storm-image-forecast" ; break;
-            case "Clear"                : foreCastClass = "clear-image-forecast" ; break;
-            case "Rain"                 : foreCastClass = "rain-image-forecast" ; break;
-            case "Chance of flurries"   : foreCastClass = "chance-of-flurries-image-forecast" ; break;
-            case "Cloudy"               : foreCastClass = "cloudy-image-forecast" ; break;
-
-            default                     : foreCastClass = "sunny-image-forecast" ; /*not a great default, need image not found*/
-        }
-
-
+        var forecastType = getWeatherForecastType(this.model.attributes.Condition);
+        var foreCastClass =  forecastType.forecastImageClassName;
         this.el.querySelector('.weather-image').classList.add(foreCastClass);
         return this;
     },
@@ -123,31 +87,6 @@ window.ForecastView = Backbone.View.extend({
     }
 });
 
-
-window.GraphView = Backbone.View.extend({
-
-    //template:_.template($('#').html()),
-
-    initialize:function () {
-    },
-
-    render:function (eventName) {
-    }
-});
-
-window.WeatherView = Backbone.View.extend({
-
-    template:_.template($('#weather-template').html()),
-
-    initialize:function () {
-    },
-
-    render:function (eventName) {
-	this.el = this.template(this.model.toJSON());
-	return this;
-    }
-});
-
 window.WeatherDetailsView = Backbone.View.extend({
 
     template:_.template($('#weather-details-template').html()),
@@ -157,6 +96,14 @@ window.WeatherDetailsView = Backbone.View.extend({
 
     render:function (eventName) {
 	this.el = this.template(this.model.toJSON());
+
+    var forecastType = getWeatherForecastType(this.model.attributes.Condition);
+    var backgroundImageClassName =  forecastType.backgroundImageClassName;
+    //this.el.querySelector('.weather-image').classList.add(foreCastClass);
+    $("body").addClass(backgroundImageClassName)
+
+
+
 	return this;
 
     }
@@ -171,20 +118,18 @@ var appRouter = Backbone.Router.extend({
 
         var weather = new WeatherModel();
         var forecast = new WeatherCollection();
-        var weatherView = new WeatherView({model:weather});
+
         var weatherDetailsView = new WeatherDetailsView({model:weather});
         var forecastView = new ForecastView({model:forecast});
 
         forecast.fetch({
             success: function(){
-
                 forecastView.render();
             }
         });
 
         weather.fetch({
             success: function(){
-                $('#weather').html(weatherView.render().el);
                 $('#weatherdetails').html(weatherDetailsView.render().el);
             }
         });

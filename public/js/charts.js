@@ -24,8 +24,8 @@ function drawChart() {
     var highest = 0 ;
     var lowest = 0;
     for(var i = 0 ; i < weeklyWeatherData.length; i++){
-        var high = parseInt(weeklyWeatherData[i].High);
-        var low = parseInt(weeklyWeatherData[i].Low);
+        var high = parseInt(weeklyWeatherData[i].High,10);
+        var low = parseInt(weeklyWeatherData[i].Low,10);
         var average = (high + low) / 2;
         graphData.push(average);
         highest = average>highest ? average : highest;
@@ -36,11 +36,12 @@ function drawChart() {
     var option = {
                 width:parentContainerWidth, height:400,
                 animation: {duration: 2000, easing: 'inAndOut'},
-                vAxis: { baselineColor: 'none',textStyle : {color : "#FFFFFF", fontSize: 15,fontFamily : "Open sans"},gridlines: {color: '#FFFFFF', count: 5}, title: "Average Temperature",titleTextStyle: {color: '#FFFFFF', fontSize: 20}, minValue:highest, maxValue:lowest},
+                vAxis: { baselineColor: 'none',textStyle : {color : "#FFFFFF", fontSize: 15,fontFamily : "Open sans"},gridlines: {color: '#FFFFFF', count: 5}, title: "Average Temperature",titleTextStyle: {color: '#FFFFFF', fontSize: 20}, minValue:highest + 0.5, maxValue:lowest - 0.5},
                 backgroundColor:{
                     color: 'none',
                     fill: 'none'
                 },
+                'curveType': 'function',
                 areaOpacity : 0.8,
                 series: {
                     0:{ color: '#ffffff', lineWidth: 4, pointSize: 10}
@@ -70,7 +71,6 @@ function drawChart() {
 
     new Chart(chart,data,option);
     chart.draw(data, option);
-    
   });
 
 }
@@ -96,6 +96,6 @@ function resizeChart() {
     var parentContainerWidth = $("#chart_div").width();
     option['width'] = parentContainerWidth;
     chartImage.draw(data, option);
-};
+}
 
 window.onresize = resizeChart;

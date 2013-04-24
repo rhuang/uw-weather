@@ -8,12 +8,10 @@
     <link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
     
     <script type="text/template" id="forecast-template">	
-
 	<div class="day-of-week center"><%= Day %></div>
         <div class="weather-image">
             <div width="100%" height="100%"/>
         </div>
-    	
     	<div class="weather-range">
             <div class="weather-range-inner">
                  <div class="temp-ranges-container">
@@ -22,10 +20,6 @@
                  </div>
             </div>
         </div>
-     
-    </script>
-
-    <script type="text/template" id="weather-template">
     </script>
 
     <script type="text/template" id="weather-details-template">
@@ -36,6 +30,10 @@
                        <h1><%= Temp %>°</h1>
                         <div class="weather-details">
                             <div class="detail">
+                                <h2>Condition</h2>
+                                <span><%=Condition %></span>
+                            </div>
+                            <div class="detail">
                                 <h2>Windchill</h2>
                                 <span><%=Windchill %>°</span>
                             </div>
@@ -45,11 +43,11 @@
                             </div>
                             <div class="detail">
                                 <h2>Precipitation</h2>
-                                <span><%= Precipitation %>mm</span>
+                                <span><%= Precipitation %> mm</span>
                             </div>
                             <div class="detail">
                                 <h2>Wind Speed</h2>
-                                <span> <%= Wind %> km/hr NW</span>
+                                <span> <%= Wind %> km/hr <%= WindDir %></span>
                             </div>
                         </div>
                     </div>
@@ -81,7 +79,6 @@
 
     <section class="main-container">
         <article class="row-fluid weather-view ">
-           
             <section class="weather-details-container" id="weatherdetails"></section>
         </article>
 
@@ -97,8 +94,8 @@
     <script src="js/libs/backbone/backbone.js"></script>
     <script src="js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="js/libs/less/less.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/rain.js"></script>
-     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </body>
 </html>
