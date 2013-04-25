@@ -4,33 +4,28 @@
 @max-height: 100%;
 @max-width: 100%;
 
-@body-background-color: #E7E7E7;
-@main-container-background-color: rgba(119, 136, 153, 0.5);
-
+@main-container-background-color:rgba(119, 136, 153, 0.8);
 
 @forecast-background: "../imgs/forecast.png";
-@body-background: "../imgs/rain.jpg";
 
+@sunny-background : "../imgs/sunny.jpg";
+@rainy-background : "../imgs/rain.jpg";
+@snow-background : "../imgs/snow.jpg";
+@clear-background : "../imgs/clear.jpg";
 
-@snow-background: "../imgs/snow.png";
-@snow1-background: "../imgs/snow2.png";
-@snow2-background: "../imgs/snow3.png";
 
 html, body{
 
 	font-family: 'Open Sans', sans-serf;
-    color: #fff;
+    color: #ffffff;
     text-shadow: 1px 1px #999;
     padding-bottom: 0;
-    background: url('../imgs/snow-new.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 body{
-	
     padding-top:60px;
     padding-bottom: 60px;
-
 }
 
 .bordered{
@@ -55,40 +50,31 @@ body{
 .temp-ranges{
 	.center;
 	height : @max-height;
+	font-size: 14px;
+	line-height: 20px;
+	display: inline;
+	margin: 0;
+	margin: 10px 0;
+	font-family: inherit;
+	font-weight: bold;
+	color: inherit;
+	text-rendering: optimizelegibility;
 }
 
 .main-container{
 	background-color: @main-container-background-color;
-
 	margin-left:4em;
 	margin-right:4em;
 	width:auto;
 	height: @max-height;
-	
-	 /*  
-	background:#0D343A;
-	background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(#000000));
-	background:#6B92B9	;
-    background-image: url("@{snow-background}"), url("@{snow1-background}"),url("@{snow2-background}");
-    -webkit-animation: snow 20s linear infinite;
-	*/
-
-	/*
-	background:url("@{body-background}") no-repeat fixed center top;
-	background-image: url("@{body-background}");
-	height: 700px;
-	width: auto;
-	*/
 }
 
 .weather-view{
 	height: @weather-view-height;
-	
 }
 
 .weather-view .temp-container{
 	height: @max-height;
-	
 }
 
 .weather-view .temp-container .real-temp{
@@ -140,7 +126,6 @@ body{
     font-weight: normal;
     line-height: 150px;
     margin: 0;
-    color: #fff;
     padding: 30px;
     height: 200px;
     display: inline;
@@ -165,15 +150,13 @@ body{
 }
 
 .weather-details {
-padding: 20px;
+	padding: 20px;
 }
 
 .weather-view .weather-details-container .weather-details{
-
 	height: 200px;
 	min-width: 200px;
 	float: right;
-
 }
 
 .graph-view{
@@ -182,11 +165,8 @@ padding: 20px;
 }
 
 .forecast-view{
+	padding-top : 30px;
 	height: @forecast-view-height;
-}
-
-.forecast-view :hover{
-	background-color: @body-background-color;
 }
 
 .forecast-view .forecast-container{
@@ -194,6 +174,17 @@ padding: 20px;
 }
 
 .forecast-view .forecast-container .day-of-week{
+
+	font-size: 24.5px;
+	line-height: 40px;
+	display: inline;
+	margin: 0;
+	margin: 10px 0;
+	font-family: inherit;
+	font-weight: bold;
+	line-height: 20px;
+	color: inherit;
+	text-rendering: optimizelegibility;
 	height: 25%;
 	width:	100%;
 	
@@ -203,21 +194,35 @@ padding: 20px;
 	height: 50%;
 }
 
+.sunny-image-background {
+	 background:url("@{sunny-background}") no-repeat center center fixed;
+}
+.rainy-image-background {
+	 background:url("@{rainy-background}") no-repeat center center fixed;
+}
+.snow-image-background {
+	 background:url("@{snow-background}") no-repeat center center fixed;
+}
+.clear-image-background {
+	 background:url("@{clear-background}") no-repeat center center fixed;
+}
+
 .sunny-image-forecast div{
 	background-image: url("@{forecast-background}");
 	background-position: -48px -60px;
 	height : 95px;
 	width  : 130px;
-	margin-left : 3em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.chance-of-storm-image-forecast div{
+.storm-image-forecast div{
 	background-image: url("@{forecast-background}");
 	background-position: -291px -170px;
 	height : 108px;
 	width  : 130px;
-	margin-left : 3em;
-
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .clear-image-forecast div{
@@ -225,7 +230,8 @@ padding: 20px;
 	background-position: -48px -60px;
 	height : 95px;
 	width  : 130px;
-	margin-left : 3em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .rain-image-forecast div{
@@ -233,24 +239,26 @@ padding: 20px;
 	background-position: -45px -176px;
 	height : 95px;
 	width  : 130px;
-	margin-left : 3em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.chance-of-flurries-image-forecast div{
+.snow-image-forecast div{
 	background-image: url("@{forecast-background}");
 	background-position: -424px -59px; 
 	width  : 120px;
 	height : 90px;
-	margin-left : 3em;
-
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .cloudy-image-forecast div{
 	background-image: url("@{forecast-background}");
-	background-position: -168px -62px;
+	background-position: -180px -62px;
 	width  : 120px;
 	height : 90px;
-	margin-left : 3em;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
