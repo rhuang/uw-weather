@@ -99,8 +99,9 @@ window.WeatherDetailsView = Backbone.View.extend({
 
     var forecastType = getWeatherForecastType(this.model.attributes.Condition);
     var backgroundImageClassName =  forecastType.backgroundImageClassName;
-    //this.el.querySelector('.weather-image').classList.add(foreCastClass);
-    $("body").addClass(backgroundImageClassName)
+    
+    //$("body").addClass(backgroundImageClassName);
+    $("body").addClass("snow-image-background");
 
 
 
