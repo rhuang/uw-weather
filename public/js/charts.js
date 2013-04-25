@@ -24,8 +24,8 @@ function drawChart() {
     var highest = 0 ;
     var lowest = 0;
     for(var i = 0 ; i < weeklyWeatherData.length; i++){
-        var high = parseInt(weeklyWeatherData[i].High);
-        var low = parseInt(weeklyWeatherData[i].Low);
+        var high = parseInt(weeklyWeatherData[i].High,10);
+        var low = parseInt(weeklyWeatherData[i].Low,10);
         var average = (high + low) / 2;
         graphData.push(average);
         highest = average>highest ? average : highest;
@@ -34,13 +34,24 @@ function drawChart() {
 
     var parentContainerWidth = $("#chart_div").width();
     var option = {
-               width:parentContainerWidth, height:400,
-               animation: {duration: 2000, easing: 'out'},
-               vAxis: {title: "Year", minValue:highest, maxValue:lowest},
-               backgroundColor: 'none',
-              
-
-               hAxis: {title: "Time Intervals"}};
+                width:parentContainerWidth, height:400,
+                animation: {duration: 2000, easing: 'inAndOut'},
+                vAxis: { baselineColor: 'none',textStyle : {color : "#FFFFFF", fontSize: 15,fontFamily : "Open sans"},gridlines: {color: '#FFFFFF', count: 5}, title: "Average Temperature",titleTextStyle: {color: '#FFFFFF', fontSize: 20}, minValue:highest + 0.5, maxValue:lowest - 0.5},
+                backgroundColor:{
+                    color: 'none',
+                    fill: 'none'
+                },
+                'curveType': 'function',
+                areaOpacity : 0.8,
+                series: {
+                    0:{ color: '#ffffff', lineWidth: 4, pointSize: 10}
+                },
+                tooltipTextStyle: { color: '#444444', fontName: 'Open sans', fontSize: 12},
+                fontName: 'Arial',
+                colors: ["white"],
+                legend: 'none',
+                hAxis: {title: '',textStyle : {color : "#FFFFFF", fontSize: 15,fontFamily : "Open sans"},titleTextStyle: {color: '#FFFFFF', fontSize: 20,fontFamily : "Open sans"}}
+            };
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Day');
@@ -50,7 +61,7 @@ function drawChart() {
     data.addRow([weeklyWeatherData[j].Day, 0]);
     }
 
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, option);
 
     var dataSize = graphData.length;
@@ -60,7 +71,6 @@ function drawChart() {
 
     new Chart(chart,data,option);
     chart.draw(data, option);
-    
   });
 
 }
@@ -86,6 +96,6 @@ function resizeChart() {
     var parentContainerWidth = $("#chart_div").width();
     option['width'] = parentContainerWidth;
     chartImage.draw(data, option);
-};
+}
 
 window.onresize = resizeChart;
