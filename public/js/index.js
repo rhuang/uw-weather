@@ -100,10 +100,19 @@ window.WeatherDetailsView = Backbone.View.extend({
     var forecastType = getWeatherForecastType(this.model.attributes.Condition);
     var backgroundImageClassName =  forecastType.backgroundImageClassName;
     
-    //$("body").addClass(backgroundImageClassName);
-    $("body").addClass("snow-image-background");
+    $("body").addClass(backgroundImageClassName);
+    //onsole.log(backgroundImageClassName)
+    //$("body").addClass("snow-image-background");
 
+    switch(backgroundImageClassName){
 
+        case FORECAST_TYPES.SUNNY.backgroundImageClassName :   $(".main-container").addClass(FORECAST_TYPES.SUNNY.overlayImageClassName); break;
+        case FORECAST_TYPES.STORM.backgroundImageClassName :   $(".main-container").addClass(FORECAST_TYPES.STORM.overlayImageClassName); break;
+        case FORECAST_TYPES.CLEAR.backgroundImageClassName :   $(".main-container").addClass(FORECAST_TYPES.CLEAR.overlayImageClassName); break;
+        case FORECAST_TYPES.RAIN.backgroundImageClassName  :   $(".main-container").addClass(FORECAST_TYPES.RAIN.overlayImageClassName); break;
+        case FORECAST_TYPES.SNOW.backgroundImageClassName  :   $(".main-container").addClass(FORECAST_TYPES.SNOW.overlayImageClassName); break;
+        case FORECAST_TYPES.CLOUDY.backgroundImageClassName:   $(".main-container").addClass(FORECAST_TYPES.CLOUDY.overlayImageClassName); break;
+    }
 
 	return this;
 
