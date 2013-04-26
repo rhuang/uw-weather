@@ -4,7 +4,11 @@
 @max-height: 100%;
 @max-width: 100%;
 
+/*
 @main-container-background-color:rgba(119, 136, 153, 0.8);
+@main-container-background-color:rgba(61, 91, 80, 0.8);
+@main-container-background-color:rgba(61, 91, 80, 0.8);
+*/
 
 @forecast-background: "../imgs/forecast.png";
 
@@ -12,6 +16,7 @@
 @rainy-background : "../imgs/rain.jpg";
 @snow-background : "../imgs/snow.jpg";
 @clear-background : "../imgs/clear.jpg";
+
 
 
 html, body{
@@ -62,7 +67,7 @@ body{
 }
 
 .main-container{
-	background-color: @main-container-background-color;
+
 	margin-left:4em;
 	margin-right:4em;
 	width:auto;
@@ -205,6 +210,30 @@ body{
 }
 .clear-image-background {
 	 background:url("@{clear-background}") no-repeat center center fixed;
+}
+
+.clear-image-overlay{
+	background-color: rgba(61, 91, 85, 0.8);
+}
+
+.snow-image-overlay{
+	background-color: rgba(119, 136, 153, 0.8);
+}
+
+.sunny-image-overlay{
+	
+}
+
+.rainy-image-overlay{
+
+}
+
+.cloudy-image-overlay{
+
+}
+
+.storm-image-overlay{
+
 }
 
 .sunny-image-forecast div{

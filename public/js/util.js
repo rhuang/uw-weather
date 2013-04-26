@@ -6,12 +6,12 @@
 /*needs to go into some global file/class */
 
 var FORECAST_TYPES = {
-  SUNNY                 : {forecastImageClassName: "sunny-image-forecast"				, backgroundImageClassName: "sunny-image-background"},
-  STORM					: {forecastImageClassName: "storm-image-forecast"				, backgroundImageClassName: ""},
-  CLEAR                 : {forecastImageClassName: "clear-image-forecast"				, backgroundImageClassName: "clear-image-background"},
-  RAIN                  : {forecastImageClassName: "rain-image-forecast"				, backgroundImageClassName: "rainy-image-background"},
-  SNOW					: {forecastImageClassName: "snow-image-forecast"				, backgroundImageClassName: "snow-image-background"},
-  CLOUDY                : {forecastImageClassName: "cloudy-image-forecast"				, backgroundImageClassName: ""}
+  SUNNY                 : {forecastImageClassName: "sunny-image-forecast"				, backgroundImageClassName: "sunny-image-background", overlayImageClassName : "sunny-image-overlay"},
+  STORM					: {forecastImageClassName: "storm-image-forecast"				, backgroundImageClassName: ""						, overlayImageClassName : "storm-image-overlay"},
+  CLEAR                 : {forecastImageClassName: "clear-image-forecast"				, backgroundImageClassName: "clear-image-background", overlayImageClassName : "clear-image-overlay"},
+  RAIN                  : {forecastImageClassName: "rain-image-forecast"				, backgroundImageClassName: "rainy-image-background", overlayImageClassName : "rainy-image-overlay"},
+  SNOW					: {forecastImageClassName: "snow-image-forecast"				, backgroundImageClassName: "snow-image-background" , overlayImageClassName : "snow-image-overlay"},
+  CLOUDY                : {forecastImageClassName: "cloudy-image-forecast"				, backgroundImageClassName: ""						, overlayImageClassName	: "cloudy-image-overlay"}
 };
 
 /*
