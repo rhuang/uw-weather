@@ -14,10 +14,10 @@
 
 @sunny-background : "../imgs/sunny.jpg";
 @rainy-background : "../imgs/rain.jpg";
+@stormy-background : "../imgs/rain.jpg";
 @snow-background : "../imgs/snow.jpg";
 @clear-background : "../imgs/clear.jpg";
-
-
+@cloudy-background: "../imgs/cloudy.jpg";
 
 html, body{
 
@@ -204,6 +204,7 @@ body{
 }
 .rainy-image-background {
 	 background:url("@{rainy-background}") no-repeat center center fixed;
+
 }
 .snow-image-background {
 	 background:url("@{snow-background}") no-repeat center center fixed;
@@ -212,8 +213,15 @@ body{
 	 background:url("@{clear-background}") no-repeat center center fixed;
 }
 
+.cloudy-image-background {
+	 background:url("@{cloudy-background}") no-repeat center center fixed;
+}
+.stormy-image-background {
+	 background:url("@{rainy-background}") no-repeat center center fixed;
+}
+
 .clear-image-overlay{
-	background-color: rgba(61, 91, 85, 0.8);
+	background-color: rgba(61, 90, 55, 0.6);
 }
 
 .snow-image-overlay{
@@ -221,19 +229,19 @@ body{
 }
 
 .sunny-image-overlay{
-	
+		background-color: rgba(47, 79, 79, 0.2);
 }
 
 .rainy-image-overlay{
-
+	background-color: rgba(56, 56, 56, 0.6);
 }
 
 .cloudy-image-overlay{
-
+	background-color: rgba(74, 112,139, 0.7);
 }
 
-.storm-image-overlay{
-
+.stormy-image-overlay{
+	background-color: rgba(56, 56, 56, 0.6);
 }
 
 .sunny-image-forecast div{

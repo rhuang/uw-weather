@@ -6,12 +6,12 @@
 /*needs to go into some global file/class */
 
 var FORECAST_TYPES = {
-  SUNNY                 : {forecastImageClassName: "sunny-image-forecast"				, backgroundImageClassName: "sunny-image-background", overlayImageClassName : "sunny-image-overlay"},
-  STORM					: {forecastImageClassName: "storm-image-forecast"				, backgroundImageClassName: ""						, overlayImageClassName : "storm-image-overlay"},
-  CLEAR                 : {forecastImageClassName: "clear-image-forecast"				, backgroundImageClassName: "clear-image-background", overlayImageClassName : "clear-image-overlay"},
-  RAIN                  : {forecastImageClassName: "rain-image-forecast"				, backgroundImageClassName: "rainy-image-background", overlayImageClassName : "rainy-image-overlay"},
-  SNOW					: {forecastImageClassName: "snow-image-forecast"				, backgroundImageClassName: "snow-image-background" , overlayImageClassName : "snow-image-overlay"},
-  CLOUDY                : {forecastImageClassName: "cloudy-image-forecast"				, backgroundImageClassName: ""						, overlayImageClassName	: "cloudy-image-overlay"}
+  SUNNY                 : {forecastImageClassName: "sunny-image-forecast"	, backgroundImageClassName: "sunny-image-background", overlayImageClassName : "sunny-image-overlay"},
+  STORM					: {forecastImageClassName: "storm-image-forecast"	, backgroundImageClassName: "stormy-image-background", overlayImageClassName : "stormy-image-overlay"},
+  CLEAR                 : {forecastImageClassName: "clear-image-forecast"	, backgroundImageClassName: "clear-image-background", overlayImageClassName : "clear-image-overlay"},
+  RAIN                  : {forecastImageClassName: "rain-image-forecast"	, backgroundImageClassName: "rainy-image-background", overlayImageClassName : "rainy-image-overlay"},
+  SNOW					: {forecastImageClassName: "snow-image-forecast"	, backgroundImageClassName: "snow-image-background" , overlayImageClassName : "snow-image-overlay"},
+  CLOUDY                : {forecastImageClassName: "cloudy-image-forecast"	, backgroundImageClassName: "cloudy-image-background", overlayImageClassName: "cloudy-image-overlay"}
 };
 
 /*
@@ -32,6 +32,7 @@ function getWeatherForecastType(forecast) {
 	if (forecast.indexOf("storm") >= 0) {
 		forecastType = FORECAST_TYPES.CHANCE_OF_STORM;
 	}
+	
 
 	if (forecast.indexOf("clear") >= 0) {
 		forecastType =  FORECAST_TYPES.CLEAR;
