@@ -101,9 +101,6 @@ window.WeatherDetailsView = Backbone.View.extend({
     var backgroundImageClassName =  forecastType.backgroundImageClassName;
     
     $("body").addClass(backgroundImageClassName);
-    //onsole.log(backgroundImageClassName)
-    //$("body").addClass("snow-image-background");
-
     switch(backgroundImageClassName){
 
         case FORECAST_TYPES.SUNNY.backgroundImageClassName :   $(".main-container").addClass(FORECAST_TYPES.SUNNY.overlayImageClassName); break;
